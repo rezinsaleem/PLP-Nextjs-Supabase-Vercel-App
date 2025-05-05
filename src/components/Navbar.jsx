@@ -125,6 +125,53 @@ export default function Navbar() {
           </div>
         )}
       </div>
+      <nav className="border-b border-gray-400 bg-gray-100 hidden md:block">
+  <div className="max-w-7xl mx-auto flex justify-center text-gray-900">
+    <ul className="flex space-x-12 py-4 font-bold">
+      <li>
+        <Link
+          href="#"
+          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+        >
+          SHOP
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="#"
+          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+        >
+          SKILLS
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="#"
+          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+        >
+          STORIES
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="#"
+          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+        >
+          ABOUT
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="#"
+          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+        >
+          CONTACT US
+        </Link>
+      </li>
+    </ul>
+  </div>
+</nav>
+
     </header>
   )
 }
