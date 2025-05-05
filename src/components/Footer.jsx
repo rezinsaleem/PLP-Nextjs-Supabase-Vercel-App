@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,12 +40,18 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-4">CURRENCY</h3>
               <div className="flex items-center gap-2">
                 <div className="w-6 h-6 rounded-full overflow-hidden">
-                  <Image src="/us-flag.svg" alt="US Flag" width={24} height={24} />
+                  <Image
+                    src="/us-flag.svg"
+                    alt="US Flag"
+                    width={24}
+                    height={24}
+                  />
                 </div>
                 <span>• USD</span>
               </div>
               <p className="text-xs mt-2">
-                Transactions will be completed in Euros and a currency reference is available on hover.
+                Transactions will be completed in Euros and a currency reference
+                is available on hover.
               </p>
             </div>
           </div>
@@ -94,57 +100,57 @@ export default function Footer() {
 
           {/* Quick Links (Collapsible) */}
           <div className="space-y-6">
-  {/* Quick Links heading */}
-  <h3
-    className="text-xl font-bold cursor-pointer lg:block block" // Ensures it shows on mobile/tablet (lg:block shows on large screens)
-    onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)}
-  >
-    QUICK LINKS
-  </h3>
+            {/* Quick Links heading */}
+            <h3
+              className="text-xl font-bold cursor-pointer lg:block block" // Ensures it shows on mobile/tablet (lg:block shows on large screens)
+              onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)}
+            >
+              QUICK LINKS
+            </h3>
 
-  {/* Quick Links List - Collapsible on smaller screens */}
-  <ul
-    className={`space-y-3 ${isQuickLinksOpen ? 'block' : 'hidden'} lg:block`} // Toggles visibility based on the state for mobile/tablet
-  >
-    <li>
-      <Link href="#" className="hover:underline">
-        Orders & Shipping
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        Join/Login as a Seller
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        Payment & Pricing
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        Return & Refunds
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        FAQs
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        Privacy Policy
-      </Link>
-    </li>
-    <li>
-      <Link href="#" className="hover:underline">
-        Terms & Conditions
-      </Link>
-    </li>
-  </ul>
-</div>
-
-
+            {/* Quick Links List - Collapsible on smaller screens */}
+            <ul
+              className={`space-y-3 ${
+                isQuickLinksOpen ? "block" : "hidden"
+              } lg:block`} // Toggles visibility based on the state for mobile/tablet
+            >
+              <li>
+                <Link href="#" className="hover:underline">
+                  Orders & Shipping
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Join/Login as a Seller
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Payment & Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Return & Refunds
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:underline">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Follow Us (mobile) and Payment Methods */}
           <div className="space-y-8">
@@ -174,22 +180,52 @@ export default function Footer() {
               <h3 className="text-xl font-bold mb-6">mettā muse ACCEPTS</h3>
               <div className="grid grid-cols-6 gap-2">
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/google-pay.svg" alt="Google Pay" width={50} height={20} />
+                  <Image
+                    src="/google-pay.svg"
+                    alt="Google Pay"
+                    width={50}
+                    height={20}
+                  />
                 </div>
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/mastercard.svg" alt="Mastercard" width={50} height={20} />
+                  <Image
+                    src="/mastercard.svg"
+                    alt="Mastercard"
+                    width={50}
+                    height={20}
+                  />
                 </div>
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/paypal.svg" alt="PayPal" width={50} height={20} />
+                  <Image
+                    src="/paypal.svg"
+                    alt="PayPal"
+                    width={50}
+                    height={20}
+                  />
                 </div>
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/amex.svg" alt="American Express" width={50} height={20} />
+                  <Image
+                    src="/amex.svg"
+                    alt="American Express"
+                    width={50}
+                    height={20}
+                  />
                 </div>
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/apple-pay.svg" alt="Apple Pay" width={50} height={20} />
+                  <Image
+                    src="/apple-pay.svg"
+                    alt="Apple Pay"
+                    width={50}
+                    height={20}
+                  />
                 </div>
                 <div className="rounded flex items-center justify-center">
-                  <Image src="/shop-pay.svg" alt="Shop Pay" width={50} height={20} />
+                  <Image
+                    src="/shop-pay.svg"
+                    alt="Shop Pay"
+                    width={50}
+                    height={20}
+                  />
                 </div>
               </div>
             </div>

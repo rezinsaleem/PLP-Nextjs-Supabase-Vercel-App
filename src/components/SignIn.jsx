@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from 'zod';
-import { supabase } from '../lib/supabase';
-import { toast } from 'react-hot-toast';
-import Link from 'next/link';
+import * as z from "zod";
+import { supabase } from "../lib/supabase";
+import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 const formSchema = z.object({
   email: z.string().email("Enter a valid email"),
@@ -21,9 +21,11 @@ export default function SignIn() {
   useEffect(() => {
     // Check if the user is already signed in
     const checkUser = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       if (session) {
-        router.push('/'); // Redirect to homepage if signed in
+        router.push("/"); // Redirect to homepage if signed in
       }
     };
     checkUser();
@@ -41,7 +43,10 @@ export default function SignIn() {
     setLoading(true);
     const { email, password } = data;
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
     setLoading(false);
 
@@ -55,7 +60,9 @@ export default function SignIn() {
 
   return (
     <div className="max-w-md mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold text-center mb-6 text-slate-800">Sign In</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 text-slate-800">
+        Sign In
+      </h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -65,7 +72,9 @@ export default function SignIn() {
             {...register("email")}
             className="w-full p-3 rounded-lg border text-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-violet-500"
           />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>}
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
         </div>
 
         <div>
@@ -75,7 +84,11 @@ export default function SignIn() {
             {...register("password")}
             className="w-full p-3 rounded-lg border text-gray-800 border-gray-600 focus:outline-none focus:ring-2 focus:ring-violet-500"
           />
-          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
+          )}
         </div>
 
         <button
@@ -88,8 +101,10 @@ export default function SignIn() {
       </form>
 
       <p className="text-center mt-4 text-sm text-gray-600">
-        Don't have an account?{' '}
-        <Link href="/sign-up" className="text-violet-600 hover:underline">Sign Up</Link>
+        Don't have an account?{" "}
+        <Link href="/sign-up" className="text-violet-600 hover:underline">
+          Sign Up
+        </Link>
       </p>
     </div>
   );

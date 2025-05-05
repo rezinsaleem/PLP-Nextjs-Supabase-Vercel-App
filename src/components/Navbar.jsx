@@ -1,19 +1,29 @@
-"use client"
-import Link from "next/link"
-import { useRouter } from 'next/navigation'
-import { ChevronDown, Heart, Search, ShoppingBag, User, Menu, User2 } from "lucide-react"
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import {
+  ChevronDown,
+  Heart,
+  Search,
+  ShoppingBag,
+  User,
+  Menu,
+  User2,
+} from "lucide-react";
 import { useEffect, useState } from "react";
-import { supabase } from "../lib/supabase"
+import { supabase } from "../lib/supabase";
 import toast from "react-hot-toast";
 
 export default function Navbar() {
-  const router = useRouter()
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [user, setUser] = useState(null)
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const getSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
       setUser(session?.user || null);
     };
 
@@ -30,9 +40,9 @@ export default function Navbar() {
       await supabase.auth.signOut();
       toast.success("Logged out successfully!");
       setUser(null);
-      router.push('/'); // Redirect after logout (optional)
+      router.push("/"); // Redirect after logout (optional)
     } else {
-      router.push('/sign-in');
+      router.push("/sign-in");
     }
   };
 
@@ -76,12 +86,17 @@ export default function Navbar() {
             </button>
 
             {/* Logo Image */}
-            <img className="h-8 w-8" src="/image.png" alt="Logo" /><span className="text-gray-100 hidden lg:flex">........................</span>
+            <img className="h-8 w-8" src="/image.png" alt="Logo" />
+            <span className="text-gray-100 hidden lg:flex">
+              ........................
+            </span>
           </div>
 
           {/* Center: Text Logo */}
           <div className="flex justify-center flex-grow">
-            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900">LOGO</h1>
+            <h1 className="text-2xl md:text-3xl  font-bold text-gray-900">
+              LOGO
+            </h1>
           </div>
 
           {/* Right Icons */}
@@ -96,12 +111,14 @@ export default function Navbar() {
               <ShoppingBag className="h-5 w-5" />
             </button>
             <button aria-label="User" onClick={handleClick}>
-      {user ? (
-        <span className="hidden md:flex items-center cursor-pointer">LogOut</span> // You can also display an icon here for logout
-      ) : (
-        <User2 className="h-5 w-5 hidden lg:block cursor-pointer" />
-      )}
-    </button>
+              {user ? (
+                <span className="hidden md:flex items-center cursor-pointer">
+                  LogOut
+                </span> // You can also display an icon here for logout
+              ) : (
+                <User2 className="h-5 w-5 hidden lg:block cursor-pointer" />
+              )}
+            </button>
 
             {/* Language Dropdown - show only on md and up */}
             <div className="hidden md:flex items-center">
@@ -114,10 +131,11 @@ export default function Navbar() {
         {/* Mobile Menu Dropdown */}
         {menuOpen && (
           <div className="mt-4 bg-white rounded shadow-md p-4 space-y-3 md:hidden text-right">
-           {/* Conditionally render Sign In or Log Out based on user state */}
-          <button onClick={handleClick} className="text-gray-900 font-medium">
-            {user ? "LogOut" : "SignIn"} {/* Display Log Out if user is logged in, else Sign In */}
-          </button>
+            {/* Conditionally render Sign In or Log Out based on user state */}
+            <button onClick={handleClick} className="text-gray-900 font-medium">
+              {user ? "LogOut" : "SignIn"}{" "}
+              {/* Display Log Out if user is logged in, else Sign In */}
+            </button>
             <div className="text-gray-700">Option 1</div>
             <div className="text-gray-700">Option 2</div>
             <div className="text-gray-700">Option 3</div>
@@ -126,52 +144,51 @@ export default function Navbar() {
         )}
       </div>
       <nav className="border-b border-gray-400 bg-gray-100 hidden md:block">
-  <div className="max-w-7xl mx-auto flex justify-center text-gray-900">
-    <ul className="flex space-x-12 py-4 font-bold">
-      <li>
-        <Link
-          href="#"
-          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
-        >
-          SHOP
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
-        >
-          SKILLS
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
-        >
-          STORIES
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
-        >
-          ABOUT
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="#"
-          className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
-        >
-          CONTACT US
-        </Link>
-      </li>
-    </ul>
-  </div>
-</nav>
-
+        <div className="max-w-7xl mx-auto flex justify-center text-gray-900">
+          <ul className="flex space-x-12 py-4 font-bold">
+            <li>
+              <Link
+                href="#"
+                className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+              >
+                SHOP
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+              >
+                SKILLS
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+              >
+                STORIES
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+              >
+                ABOUT
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="#"
+                className="text-base relative after:absolute after:bg-black after:bottom-0 after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:transition-all after:duration-300"
+              >
+                CONTACT US
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
-  )
+  );
 }
